@@ -9,8 +9,6 @@ def tree_search(cd,depth,CD):
     dish = D[depth] if cd else C[depth]
 
     CD[dish]+=1
-    if sum(CD)>5:
-        print(" ")
     if depth == (K-1):
         return check_condition(CD)
     depth+=1
@@ -32,3 +30,16 @@ CD1 = [0]*(N+1)
 CD2 = [0]*(N+1)
 max_cnt = max(tree_search(0,0,CD1),tree_search(1,0,CD2))
 print(max_cnt)
+
+# itertoolsを使った全探索のやり方
+# from itertools import product
+# pattern = list(product([0, 1], repeat=K))#2^3通り
+# max_cnt = 0
+# for i in range(len(pattern)):
+#     dishes = [0]*(N+1)
+#     for j in range(K):
+#         dish = D[j] if pattern[i][j] else C[j]
+#         dishes[dish]+=1
+#     tmp_cnt = check_condition(dishes)
+#     if max_cnt < tmp_cnt: max_cnt = tmp_cnt
+# print(max_cnt)
