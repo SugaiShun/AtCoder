@@ -1,0 +1,22 @@
+N = int(input())
+
+A = [0]*N
+B = [0]*N
+C = [0]*N
+
+for i in range(N):
+    A[i],B[i] = map(int,input().split())
+ 
+sumA = -sum(A)
+C = [ 2*A[i] + B[i] for i in range(N) ]
+
+C.sort()
+
+jdg = 0
+for i in range(N):
+    sumA += C.pop()
+    if sumA > 0:
+        break
+
+print(i+1)
+
